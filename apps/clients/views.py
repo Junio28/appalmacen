@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 # Create your views here.
 from apps.clients.models import Client  #Se le incluye el modelo
@@ -20,6 +20,13 @@ class ClientCreate(CreateView):
 class ClientList(ListView):
     model = Client
     template_name = 'clients/client_list.html'
+
+class ClientUpdate(UpdateView):
+    model = Client
+    form_class = ClientForm
+    template_name = 'clients/client_form.html'
+    success_url = reverse_lazy('cliente:client_list')
+
 
 
 
