@@ -1,5 +1,6 @@
 {% extends 'base/base.html'%}
 {% block content %}
+<br>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -13,15 +14,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            {% if object_list %} <!--Sirve si los campos estan registrados en la tabla-->
+            {% for client in object_list %} <!--Se llenaran lo registros de cada fila(es un ciclo)-->
+                <tr>
+                    <td>{{client.id}}</td>
+                    <td>{{client.name}}</td>
+                    <td>{{client.lastname}}</td>
+                    <td>{{client.rut}}</td>
+                    <td>{{client.address}}</td>
+                    <td>{{client.phone}}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %} <!--Se finalizaría el ciclo-->
+            {% else %} <!--Si la tabla está vacía-->
+                <h1>No hay Registros</h1>
+            {% endif %}<!--Fin del ciclo for-->
+
         </tbody>
     </table>
 {% endblock %}
