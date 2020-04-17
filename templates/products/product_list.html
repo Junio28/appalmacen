@@ -1,0 +1,40 @@
+{% extends 'base/base.html'%}
+{% block content %}
+<br>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+                <th>DESCRIPCIÓN</th>
+                <th>MARCA</th>
+                <th>TIPO PRODUCTO</th>
+                <th>ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if object_list %} <!--Sirve si los campos estan registrados en la tabla-->
+            {% for product in object_list %} <!--Se llenaran lo registros de cada fila(es un ciclo)-->
+                <tr>
+                    <td>{{product.id}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.quantity}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.mark}}</td>
+                    <td>{{product.product_types}}</td>
+                    <td>
+                        <a href="" class="btn btn-primary">Editar</a>
+                        <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %} <!--Se finalizaría el ciclo-->
+            {% else %} <!--Si la tabla está vacía-->
+                <h1>No hay Registros</h1>
+            {% endif %}<!--Fin del ciclo for-->
+
+        </tbody>
+    </table>
+{% endblock %}

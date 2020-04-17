@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 # Create your views here.
 from apps.products.models import Product  #Se le incluye el modelo
 from apps.products.form import ProductForm
@@ -15,6 +15,12 @@ class ProductCreate(CreateView):
    model = Product
    form_class = ProductForm
    template_name = 'products/product_form.html'
-   success_url = reverse_lazy('producto:product') 
+   success_url = reverse_lazy('producto:product_list') 
+
+
+class ProductList(ListView):
+       model = Product
+       template_name = 'products/product_list.html'
+
 
 
