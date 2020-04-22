@@ -1,6 +1,6 @@
 from django import forms #Se importa los forms de Django
  
-from apps.products.models import Product #importar el Modelo
+from apps.products.models import Product, ProductType #importar el Modelo
  
 #Se crea la clase
 class ProductForm(forms.ModelForm):
@@ -33,3 +33,19 @@ class ProductForm(forms.ModelForm):
         'genders':forms.Select(attrs={'class':'form-control'}),
     	'product_types':forms.Select(attrs={'class':'form-control'}),	
         }   	# Los widgets sirve para definir los campos del formulario
+
+
+class ProductTypeForm(forms.ModelForm):
+    class Meta:
+        model = ProductType #Se incluye el modelo en donde proviene
+        fields = [
+        	'name',
+        ] #Se incluyen los campos de ese modelo
+ 
+        labels = {
+         	'name': 'Nombre',
+        }   	# Son las etiquetas a la hora de trazar el formulario
+ 
+        widgets = {
+        'name':forms.TextInput(attrs={'class':'form-control'}),
+        }
