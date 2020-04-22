@@ -1,7 +1,11 @@
 {% extends 'base/base.html'%}
+{% block title %}Página de Ventas {% endblock %}
 {% block content %}
 <div class="container">
     <br>
+    <br>
+    <a href="{% url 'venta:sale_new' %}" class="btn btn-success">Añadir</a>
+    <hr>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -27,8 +31,8 @@
                     <td>{{sale.user}}</td>
                     <td>{{sale.clients}}</td>
                     <td>
-                        <a href="" class="btn btn-primary">Editar</a>
-                        <a href="" class="btn btn-danger">Eliminar</a>
+                        <a class="btn btn-primary" href="{% url 'venta:sale_edit' sale.id %}">Editar</a>
+                        <a href="{% url 'venta:sale_delete' sale.id %}" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %} <!--Se finalizaría el ciclo-->
