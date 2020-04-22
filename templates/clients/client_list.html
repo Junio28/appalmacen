@@ -1,8 +1,9 @@
 {% extends 'base/base.html'%}
 {% block title %}Página de Cliente {% endblock %}
 {% block content %}
-<br>
-<a href="{% url 'cliente:client_new' %}" class="btn btn-success">Añadir</a>
+<div class="container">
+    <br>
+    <a href="{% url 'cliente:client_new' %}" class="btn btn-success">Añadir</a>
 <hr>
     <table class="table table-striped">
         <thead>
@@ -38,4 +39,6 @@
 
         </tbody>
     </table>
+</div>
+
 {% endblock %}
