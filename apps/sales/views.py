@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView, UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 # Create your views here.
 from apps.sales.models import Sale  #Se le incluye el modelo
 from apps.sales.form import SaleForm
@@ -22,5 +22,10 @@ class SaleUpdate(UpdateView):
     model = Sale
     form_class = SaleForm
     template_name = 'sales/sale_form.html'
+    success_url = reverse_lazy('venta:sale_list')
+
+class SaleDelete(DeleteView):
+    model = Sale
+    template_name = 'sales/sale_delete.html'
     success_url = reverse_lazy('venta:sale_list')
 
