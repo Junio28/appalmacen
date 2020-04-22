@@ -52,5 +52,11 @@ class ProductTypeUpdate(UpdateView):
     success_url = reverse_lazy('producto:productType_list')
 
 
+class ProductTypeDelete(DeleteView):
+    model = ProductType
+    template_name = 'products/productType/productType_delete.html'
+    success_url = reverse_lazy('producto:productType_list')
+
+
 
 
