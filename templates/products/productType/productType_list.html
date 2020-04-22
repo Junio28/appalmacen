@@ -11,10 +11,10 @@
         </thead>
         <tbody>
             {% if object_list %} <!--Sirve si los campos estan registrados en la tabla-->
-            {% for productType in object_list %} <!--Se llenaran lo registros de cada fila(es un ciclo)-->
+            {% for producttype in object_list %} <!--Se llenaran lo registros de cada fila(es un ciclo)-->
                 <tr>
-                    <td>{{productType.id}}</td>
-                    <td>{{productType.name}}</td>
+                    <td>{{producttype.id}}</td>
+                    <td>{{producttype.name}}</td>
                     <td>
                         <a href="" class="btn btn-primary">Editar</a>
                         <a href="" class="btn btn-danger">Eliminar</a>

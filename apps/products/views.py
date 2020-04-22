@@ -39,11 +39,17 @@ class ProductTypeCreate(CreateView):
     model = ProductType
     form_class = ProductTypeForm
     template_name = 'products/productType/productType_form.html'
-    success_url = reverse_lazy('producto:type_product_list')
+    success_url = reverse_lazy('producto:productType_list')
 
 class ProductTypeList(ListView):
        model = ProductType
        template_name = 'products/productType/productType_list.html'
+
+class ProductTypeUpdate(UpdateView):
+    model = ProductType
+    form_class = ProductTypeForm
+    template_name = 'products/productType/productType_form.html'
+    success_url = reverse_lazy('producto:productType_list')
 
 
 
