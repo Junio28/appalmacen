@@ -1,6 +1,11 @@
 {% extends 'base/base.html'%}
+{% block title %}Página de Tipo Productos {% endblock %}
 {% block content %}
-<br>
+
+<div class="container">
+    <br>
+    <a href="{% url 'producto:productType_new' %}" class="btn btn-success">Añadir</a>
+<hr>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -16,8 +21,8 @@
                     <td>{{producttype.id}}</td>
                     <td>{{producttype.name}}</td>
                     <td>
-                        <a href="" class="btn btn-primary">Editar</a>
-                        <a href="" class="btn btn-danger">Eliminar</a>
+                        <a class="btn btn-primary" href="{% url 'producto:productType_edit' producttype.id %}">Editar</a>
+                        <a class="btn btn-danger" href="{% url 'producto:productType_delete' producttype.id %}">Eliminar</a>
                     </td>
                 </tr>
             {% endfor %} <!--Se finalizaría el ciclo-->
@@ -27,4 +32,6 @@
 
         </tbody>
     </table>
+</div>
+
 {% endblock %}
